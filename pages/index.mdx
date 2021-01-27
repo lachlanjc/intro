@@ -1,0 +1,106 @@
+import { Collapse, Note } from '@geist-ui/react'
+import Editor from '../components/editor'
+
+# Personal Website tutorial
+
+Welcome! In the next 45 minutes, you’re going to get your first website online, and it’s going to be fabulous. It’ll look something like this:
+
+TK IMG
+
+<Note style={{ marginBottom: '12pt' }}>
+
+Check out the live demo and final code (the files `index.html` & `style.css`).
+
+</Note>
+
+## Part 1: Setup
+
+All websites are written with code. To write our code, we need our own code editor. We’re going to use [repl.it](https://repl.it), a free, online code editor, since it works on all kinds of computers. It works similarly to Google Docs, but it’s optimized for typing code & will host your website.
+
+To get started, go to <https://repl.it/languages/html>. Your coding environment will immediately spin up with some demo code.
+
+![repl.it empty](https://cloud-fxrw1wlqu.vercel.app/screen_shot_2020-09-04_at_12.35.02_pm_1.png)
+
+You should be seeing a file called `index.html`, with a bunch of text covered in `<` & `>` symbols. That’s HTML, which we’re about to write!
+
+## Part 2: HTML
+
+Every website—from Reddit to the New York Times—is written in HTML, which stands for Hypertext Markup Language. It “marks up” text with additional meaning, like “this line of text is a heading.” We can add non-text elements too, like images, videos, and buttons. Unlike more specialized programming languages, every computer can display HTML.
+
+### Everything is a tag
+
+```html
+<h1>Welcome!</h1>
+```
+
+Everything in HTML is a **tag**, like this one, made up of 3 parts (or more, we’ll get to that later):
+
+1. `<h1>`: the opening tag. The name of the tag is wrapped in angled brackets (`<` & `>`)
+2. `Welcome!`: the content. You can write whatever you want here!
+3. `</h1>`: the closing tag. This is just like the opening tag, but has a forward slash before the tag name
+
+Now, write your own heading!
+
+<Editor checks={["<h1>", "</h1>"]}>
+
+Add your name between opening `<h1>` + closing `</h1>` tags
+
+</Editor>
+
+### Writing tags
+
+Repl.it gives us starter code, but let’s start fresh. Delete everything in `index.html`, then type in the following. **Do not copy & paste 🤓**
+
+```html
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body></body>
+</html>
+```
+
+Every webpage uses this structure. Here’s what the template means:
+
+1. The first line, `<!DOCTYPE html>`, tells the browser we’re using HTML, and what version of HTML to expect (the latest version, HTML5, in our case)
+2. `<html></html>` contains the whole page
+3. `<head></head>` holds information _about_ the page (such as the title)
+4. `<body></body>` contains the content, which is everything you see on the page
+
+### Adding content
+
+Remember that `<h1>` tag you wrote? Add one of those with your name, below `<body>`!
+
+```html
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <h1>Lachlan Campbell</h1>
+  </body>
+</html>
+```
+
+Click the <kbd>Run</kbd> button to see your site. You’ve got your name on the page! Congratulations 🥳
+
+![Screenshot of code + site on repl.it](https://cloud-25godl11h.vercel.app/screen_shot_2020-09-04_at_1.20.56_pm.png)
+
+<Collapse.Group>
+<Collapse title="What does h1 stand for?">
+
+H1 stands for “heading 1.” HTML supports 6 levels of headings, with 1 being the largest. If you want a subheading, you use `<h2>`, or if you want another heading under that, `<h3`>.
+
+</Collapse>
+<Collapse title="What other tags are there?">
+
+HTML has _hundreds_ of tags. `<h1>` is used by nearly every website, as is `<p>`. `<strong>` will make something bold, [`<a>` adds links](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a). `<div>` is a tag that has no intrinsic meaning, but it’s used all over the place for grouping elements in more complex layouts. `<button>` does what you think it will 👇
+
+</Collapse>
+</Collapse.Group>
+
+### Adding an image
+
+Text is fun, but let’s add an image! First, we need to find the image:
+
+- If you want to upload your own image,
+
+(technically called a [void element](https://html.spec.whatwg.org/multipage/syntax.html#syntax-elements), which means it can’t contain text)
