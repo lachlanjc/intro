@@ -1,4 +1,4 @@
-import { Collapse, Note } from '@geist-ui/react'
+import { Collapse, Note, Button } from '@geist-ui/react'
 import Editor from '../components/editor'
 
 # Personal Website tutorial
@@ -84,7 +84,7 @@ Click the <kbd>Run</kbd> button to see your site. You’ve got your name on the 
 
 ![Screenshot of code + site on repl.it](https://cloud-25godl11h.vercel.app/screen_shot_2020-09-04_at_1.20.56_pm.png)
 
-<Collapse.Group>
+<Collapse.Group style={{ marginBottom: 48 }}>
 <Collapse title="What does h1 stand for?">
 
 H1 stands for “heading 1.” HTML supports 6 levels of headings, with 1 being the largest. If you want a subheading, you use `<h2>`, or if you want another heading under that, `<h3`>.
@@ -93,6 +93,10 @@ H1 stands for “heading 1.” HTML supports 6 levels of headings, with 1 being 
 <Collapse title="What other tags are there?">
 
 HTML has _hundreds_ of tags. `<h1>` is used by nearly every website, as is `<p>`. `<strong>` will make something bold, [`<a>` adds links](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a). `<div>` is a tag that has no intrinsic meaning, but it’s used all over the place for grouping elements in more complex layouts. `<button>` does what you think it will 👇
+
+<Button theme="success" auto onClick={() => alert('Oh hey!')}>
+  Click meeee
+</Button>
 
 </Collapse>
 </Collapse.Group>

@@ -13,19 +13,15 @@ const Editor = ({ defaultValue = '', checks = [], children, sx, ...props }) => {
   const [content, setContent] = useState(defaultValue)
   const [verified, setVerified] = useState(false)
 
-  useEffect(
-    () => {
-      const verification = checks.map(
-        check =>
-          check.constructor.name === 'RegExp'
-            ? content.match(check)
-            : content.includes(check),
-      )
-      console.log(verification)
-      setVerified(verification.every(c => c === true))
-    },
-    [content, checks],
-  )
+  useEffect(() => {
+    const verification = checks.map((check) =>
+      check.constructor.name === 'RegExp'
+        ? content.match(check)
+        : content.includes(check),
+    )
+    console.log(verification)
+    setVerified(verification.every((c) => c === true))
+  }, [content, checks])
 
   return (
     <Card
@@ -42,16 +38,16 @@ const Editor = ({ defaultValue = '', checks = [], children, sx, ...props }) => {
           <Grid md={12}>
             <Textarea
               status={verified ? 'success' : false}
-              minHeight="100%"
-              minWidth="100%"
               value="Success"
               initialValue={defaultValue}
               value={content}
-              onChange={e => setContent(e.target.value)}
+              onChange={(e) => setContent(e.target.value)}
               style={{
                 fontFamily: 'ui-monospace, monospace',
                 width: '100%',
                 height: '100%',
+                minHeight: '100%',
+                minWidth: '100%',
               }}
             />
           </Grid>
