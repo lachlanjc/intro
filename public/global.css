@@ -13,6 +13,7 @@ p {
 h1,
 h2 {
   font-weight: 900 !important;
+  line-height: 1.125 !important;
 }
 h3 {
   font-weight: 800 !important;
