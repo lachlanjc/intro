@@ -20,9 +20,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en-US">
-        <Head>
-          <title>Personal Website Intro Workshop</title>
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

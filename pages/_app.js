@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { CssBaseline, GeistProvider, Themes, Page } from '@geist-ui/react'
 import Author from '../components/author'
 import '../public/global.css'
@@ -27,7 +28,9 @@ const theme = Themes.createFromDark({
 function App({ Component, pageProps }) {
   return (
     <GeistProvider themes={[theme]} themeType="rounded">
-      <style jsx global>{``}</style>
+      <Head>
+        <title>Personal Website Intro Workshop</title>
+      </Head>
       <CssBaseline />
       <Page size="small">
         <Page.Content>
