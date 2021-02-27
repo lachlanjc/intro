@@ -1,21 +1,37 @@
-import { Collapse, Note, Button } from '@geist-ui/react'
+import {
+  Collapse,
+  Note,
+  Button,
+  Display,
+  Progress,
+  Spacer,
+  Card,
+  Tree,
+  Snippet,
+  Keyboard,
+} from '@geist-ui/react'
+import Checkpoint from '../components/checkpoint'
+import Browser from '../components/browser'
 import Editor from '../components/editor'
+import Form from '../components/form'
 
 # Personal Website tutorial
 
 Welcome! In the next 45 minutes, you’re going to get your first website online, and it’s going to be fabulous. It’ll look something like this:
 
-TK IMG
+<Browser url="https://intro-site.lachlanjc.repl.co" height={350} />
 
 <Note style={{ marginBottom: '12pt' }}>
 
-Check out the live demo and final code (the files `index.html` & `style.css`).
+Check out the [live demo](https://intro-site.lachlanjc.repl.co) and [final code](https://repl.it/@lachlanjc/intro-site) (the files `index.html` & `style.css`).
 
 </Note>
 
 ## Part 1: Setup
 
-All websites are written with code. To write our code, we need our own code editor. We’re going to use [repl.it](https://repl.it), a free, online code editor, since it works on all kinds of computers. It works similarly to Google Docs, but it’s optimized for typing code & will host your website.
+<Progress type="secondary" value={10} />
+
+All websites are written with code. To write our code, we need our own code Checkpoint. We’re going to use [repl.it](https://repl.it), a free, online code Checkpoint, since it works on all kinds of computers. It works similarly to Google Docs, but it’s optimized for typing code & will host your website.
 
 To get started, go to <https://repl.it/languages/html>. Your coding environment will immediately spin up with some demo code.
 
@@ -24,6 +40,8 @@ To get started, go to <https://repl.it/languages/html>. Your coding environment 
 You should be seeing a file called `index.html`, with a bunch of text covered in `<` & `>` symbols. That’s HTML, which we’re about to write!
 
 ## Part 2: HTML
+
+<Progress type="success" value={25} />
 
 Every website—from Reddit to the New York Times—is written in HTML, which stands for Hypertext Markup Language. It “marks up” text with additional meaning, like “this line of text is a heading.” We can add non-text elements too, like images, videos, and buttons. Unlike more specialized programming languages, every computer can display HTML.
 
@@ -41,11 +59,11 @@ Everything in HTML is a **tag**, like this one, made up of 3 parts (or more, we�
 
 Now, write your own heading!
 
-<Editor checks={["<h1>", "</h1>"]}>
+<Checkpoint checks={["<h1>", "</h1>"]}>
 
 Add your name between opening `<h1>` + closing `</h1>` tags
 
-</Editor>
+</Checkpoint>
 
 ### Writing tags
 
@@ -66,6 +84,8 @@ Every webpage uses this structure. Here’s what the template means:
 3. `<head></head>` holds information _about_ the page (such as the title)
 4. `<body></body>` contains the content, which is everything you see on the page
 
+Click the <Keyboard>Run</Keyboard> button to see your site. It’ll be blank—because we haven’t filled in the content yet!
+
 ### Adding content
 
 Remember that `<h1>` tag you wrote? Add one of those with your name, below `<body>`!
@@ -80,11 +100,27 @@ Remember that `<h1>` tag you wrote? Add one of those with your name, below `<bod
 </html>
 ```
 
-Click the <kbd>Run</kbd> button to see your site. You’ve got your name on the page! Congratulations 🥳
+Click the <Keyboard>Run</Keyboard> button to see your site. You’ve got your name on the page!
+Your first webpage! Congratulations 🥳
 
-![Screenshot of code + site on repl.it](https://cloud-25godl11h.vercel.app/screen_shot_2020-09-04_at_1.20.56_pm.png)
+<video
+  alt="Excited Schitts Creek GIF"
+  src="https://media3.giphy.com/media/lMsT2f47tDxFMYdJMC/giphy.mp4"
+  poster="https://media3.giphy.com/media/lMsT2f47tDxFMYdJMC/giphy_s.gif"
+  autoPlay
+  loop
+  muted
+  playsInline
+/>
 
-<Collapse.Group style={{ marginBottom: 48 }}>
+Next, let’s add some text underneath the heading. We’ll use the `<p>`, or paragraph, tag.
+
+```html
+<h1>Lachlan Campbell</h1>
+<p>Hey, I'm a web developer!</p>
+```
+
+<Collapse.Group style={{ marginTop: 48, marginBottom: 48 }}>
 <Collapse title="What does h1 stand for?">
 
 H1 stands for “heading 1.” HTML supports 6 levels of headings, with 1 being the largest. If you want a subheading, you use `<h2>`, or if you want another heading under that, `<h3`>.
@@ -95,16 +131,224 @@ H1 stands for “heading 1.” HTML supports 6 levels of headings, with 1 being 
 HTML has _hundreds_ of tags. `<h1>` is used by nearly every website, as is `<p>`. `<strong>` will make something bold, [`<a>` adds links](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a). `<div>` is a tag that has no intrinsic meaning, but it’s used all over the place for grouping elements in more complex layouts. `<button>` does what you think it will 👇
 
 <Button theme="success" auto onClick={() => alert('Oh hey!')}>
-  Click meeee
+  Click me!
 </Button>
+
+</Collapse>
+<Collapse title="What should my code look like?">
+
+![Screenshot of code + site on repl.it](https://cloud-25godl11h.vercel.app/screen_shot_2020-09-04_at_1.20.56_pm.png)
 
 </Collapse>
 </Collapse.Group>
 
 ### Adding an image
 
-Text is fun, but let’s add an image! First, we need to find the image:
+Text is fun, but let’s add an image! Images are included in HTML via the `<img>` tag,
+which has an **attribute** for the source URL of the image, shortened to `src`.
+After the name of your tag, put a space & provide the attribute like `<img src="https://url.com/image.jpg" />`
 
-- If you want to upload your own image,
+Since there’s no text content inside, `<img />` is **self-closing**. There’s no `</img>` afterwards.
 
-(technically called a [void element](https://html.spec.whatwg.org/multipage/syntax.html#syntax-elements), which means it can’t contain text)
+<Checkpoint checks={['<img src="', 'ted.gif"', '/>']} cols={[18, 6]}>
+
+Write an `<img>` tag with this source URL
+
+<Snippet symbol="" text="https://intro.lachlanjc.com/ted.gif" />
+
+</Checkpoint>
+
+Now, head over to Google Images, Imgur, Reddit, etc to get your own image. To get the source URL right click, then click <Keyboard>Copy Image Address</Keyboard>. Head back to repl.it & add an image to your page!
+
+<Collapse.Group>
+<Collapse title="How do I upload my own image?">
+
+If you want to upload your own image, drag it into the sidebar of repl.it. Then, click the <Keyboard>︙</Keyboard> to rename it to <Keyboard>photo.jpg</Keyboard> or something easy.
+
+Your image URL will be a slash then the file name, like `src="/photo.jpg"`.
+
+</Collapse>
+<Collapse title="Why don’t images have closing tags?">
+
+As noted, the image tag doesn’t have a closing tag the way `<h1></h1>` or `<body></body>` do.
+`<img>` is technically called a [void element](https://html.spec.whatwg.org/multipage/syntax.html#syntax-elements),
+which means it can’t contain text.
+
+Images aren’t the only self-closing tags; videos & embeds (like of YouTube videos) work like that too.
+
+</Collapse>
+</Collapse.Group>
+
+<Browser
+  caption="This is where our webpage should be at!"
+  html={`
+  <h1>Lachlan Campbell</h1>
+  <p>Hey, I'm a web developer! 🦄</p>
+  <img src="https://intro.lachlanjc.com/alexis.gif" alt="GIF of Alexis from Schitts Creek">
+`}
+/>
+
+## Part 3: CSS
+
+<Progress type="warning" value={50} />
+
+This is my favorite part. We get to make the page look fun! HTML defines the **elements on the page**,
+while CSS (“Cascading Style Sheets”) is a secondary language to **add styling & layout**.
+You can apply things like colors, spacing, & fonts in CSS to the HTML tags on your page.
+
+Since CSS is a different language, it lives in a separate file from the HTML.
+
+<Display
+  shadow
+  width="300px"
+  caption="In the sidebar, you’ll find the 3 files repl.it made. CSS is the last one!"
+>
+  <Spacer y={1} />
+  <Tree>
+    <Tree.File name="index.html" />
+    <Tree.File name="script.js" />
+    <Tree.File name="style.css" />
+  </Tree>
+  <Spacer y={1} />
+</Display>
+
+First, we need to add a link from the HTML to the CSS. This is an HTML tag too, but not one that shows up on the page.
+The `<head>` tag is where tags like that go, so between the `<head>` & `</head>` tags, add a link, like this:
+
+```html
+<head>
+  <link rel="stylesheet" href="style.css" />
+</head>
+```
+
+<Note>
+
+The link tag describes relationships between the current file (in this case,
+`index.html`), and some external file (`style.css`).
+`rel="stylesheet"` specifies what this relationship is: that `style.css`
+is a stylesheet, and `href` (hypertext reference) specifies where the file can
+be found (in this case, the filename `style.css`).
+The&nbsp;link tag, similar to the image, is a self-closing tag, once again closed only by `/>`.
+
+</Note>
+
+Now, we’re venturing into the world of CSS. Let’s resize the image. Open up `style.css`, then type the following:
+
+```css
+img {
+  width: 200px;
+}
+```
+
+A CSS stylesheet lists **selectors** followed by **declaration blocks** of attributes & their respective values.
+Here, the `img` is the selector, lasso-ing all the images on the page. The braces (`{ }`) wrap the declarations.
+In this case, we’re setting the `width` property to `200px`.
+(`px` refers to pixels, which are a unit of digital measurement.)
+When this rule is applied, all the images on our page will have a width of 200 pixels. Each declaration ends with a semicolon.
+
+Underneath that, let’s add one more chunk, to format the text. Instead of just picking the `h1` or `p`,
+we can style `body`, since all the text is contained within it.
+
+I want to center the text on my page, plus change the font.
+For the font, I’m going to use `system-ui` (the system font),
+but you can also try <Keyboard>Arial</Keyboard> (which Google uses), <Keyboard>Georgia</Keyboard> (if you’re fancy),
+or <Keyboard>"Comic Sans MS"</Keyboard> (note the quote marks) if that’s your vibe.
+
+```css
+body {
+  text-align: center;
+  font-family: system-ui;
+}
+```
+
+<Note label="Oh hey">
+
+We just encountered CSS’s “cascading” part: styles cascade down,
+depending on the selector’s _specificity_.
+
+`body` is more general, since it’s higher up in the tree of HTML elements,
+but if we set `font-family` on the `h1`, it would be a different font from the rest of the text,
+since `h1` is more specific than the whole `body`.
+
+</Note>
+
+Let’s do a color, too! The attribute `color` (spelled without a u) allows you to set the text color, and `background-color` allows you to set a background color. You can find a list of supported color names over at [W3Schools](https://www.w3schools.com/colors/colors_names.asp).
+
+I’m going to keep it simple & just make my name magenta pink. Keep in mind you want a combination of colors will keep the text readable.
+
+```css
+h1 {
+  color: magenta;
+}
+```
+
+Wow, we got carried away writing that CSS. Click the <Keyboard>Run</Keyboard> button & check out your masterpiece!
+
+<Editor
+  height={350}
+  defaultHtml={`<h1>Lachlan Campbell</h1>
+<p>Hey, I'm a web developer! 🦄</p>
+<img src="https://intro.lachlanjc.com/alexis.gif" alt="GIF of Alexis from Schitts Creek">
+`}
+  defaultCss={`img {
+  width: 200px;
+}
+body {
+  text-align: center;
+  font-family: system-ui;
+}
+h1 {
+  color: magenta;
+}
+  `}
+/>
+
+However your page is looking, give it a smile. You made this!
+
+<video
+  alt="Cute Schitts Creek GIF"
+  src="https://media4.giphy.com/media/fAnG09dl2C9a9ZZ332/giphy.mp4"
+  poster="https://media4.giphy.com/media/fAnG09dl2C9a9ZZ332/giphy_s.gif"
+  autoPlay
+  loop
+  muted
+  playsInline
+/>
+
+## Part 4: Go wild
+
+<Progress type="error" value={75} />
+
+In this section, your challenge is to add additional features to your website to make it your own!
+
+- Want to use a different font? Google it!
+- Want to add more pictures? Google it!
+- Want to add more text? Your entire life story? Background image? Background music? Video? More pages? Google it!
+
+A good way to get ideas for what to add to your website is to look at other people's websites. Find a website that you like, either from the below list or from somewhere else on the internet, pick one aspect of that website that you would like on your own website, and Google for ways to make it happen!
+
+**Websites Made by Other Hack Club Hackers:**
+
+- [Kat Huang](https://katmh.com)
+- [Theo Bleier](https://tmb.sh/)
+- [Megan Cui](https://megancui.com/)
+- [Matthew Stanciu](https://matthewstanciu.me/)
+- [Sophie Huang](https://sohuang.github.io/)
+- [Jevin Sidhu](http://jevinsidhu.com/)
+
+**Websites Made by Professionals:**
+
+- [Melody Starling](https://melody.dev/)
+- [Lynn Fisher](https://lynnandtonic.com)
+- [Tatiana Mac](https://tatianamac.com)
+- [Robb Owen](https://robbowen.digital)
+- [Alice Lee](http://byalicelee.com)
+- [Eel Slap](http://eelslap.com)
+
+## Part 5: Share your work!
+
+<Progress type="default" value={100} />
+
+Now that you have finished building a website, you should share your beautiful creation—because your site is on the internet, you can share it with anyone who is also online! Remember, it’s as easy as giving them your URL!
+
+<Form />

@@ -1,0 +1,100 @@
+html {
+  font-size: 19px !important;
+}
+
+p {
+  line-height: 1.75 !important;
+}
+
+.note {
+  font-size: 16px !important;
+}
+
+h1,
+h2 {
+  font-weight: 900 !important;
+}
+h3 {
+  font-weight: 800 !important;
+}
+.collapse h3 {
+  font-weight: 300 !important;
+}
+main > h2,
+main > h3,
+main > h4,
+main > h5,
+main > h6 {
+  margin: 2rem 0 1rem 0 !important;
+}
+
+.progress {
+  margin-bottom: 32pt;
+}
+
+p + .collapse,
+.collapse-group {
+  margin-top: 24pt;
+  margin-bottom: 32pt;
+}
+.collapse-group {
+  padding: 0 !important;
+}
+
+video {
+  display: flex;
+  margin: auto;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.address-input a {
+  overflow-x: visible;
+}
+
+code::before,
+code::after {
+  content: '' !important;
+}
+
+.content + .caption {
+  margin-top: 16pt !important;
+}
+
+.checkpoint-editor {
+  position: relative;
+}
+.checkpoint-editor .wrapper,
+.editor .wrapper {
+  width: 100% !important;
+}
+.checkpoint-editor .wrapper {
+  margin-right: 20pt;
+}
+.checkpoint-editor iframe,
+.editor iframe {
+  max-width: 100%;
+}
+.checkpoint-editor iframe {
+  margin-left: 20pt;
+}
+
+@media screen and (min-width: 1200px) {
+  .editor {
+    width: calc(100% + 180pt) !important;
+    margin-left: -90pt !important;
+    margin-right: -90pt !important;
+  }
+}
+
+dl {
+  width: 100%;
+}
+
+textarea {
+  font-family: ui-monospace, Menlo, monospace !important;
+  line-height: 1.375 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+}

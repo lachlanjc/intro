@@ -1,65 +1,60 @@
-import React, { useState, useEffect } from 'react'
-import {
-  Card,
-  Col,
-  Divider,
-  Grid,
-  Row,
-  Spacer,
-  Textarea,
-} from '@geist-ui/react'
+import { useState } from 'react'
+import { Card, Spacer, Row, Col, Description, Textarea } from '@geist-ui/react'
 
-const Editor = ({ defaultValue = '', checks = [], children, sx, ...props }) => {
-  const [content, setContent] = useState(defaultValue)
-  const [verified, setVerified] = useState(false)
+const Editor = ({ defaultHtml = '', defaultCss = '', height = 256 }) => {
+  const [html, setHtml] = useState(defaultHtml)
+  const [css, setCss] = useState(defaultCss)
 
-  useEffect(() => {
-    const verification = checks.map((check) =>
-      check.constructor.name === 'RegExp'
-        ? content.match(check)
-        : content.includes(check),
-    )
-    console.log(verification)
-    setVerified(verification.every((c) => c === true))
-  }, [content, checks])
+  const code = `<!DOCTYPE html>
+  <meta charset="UTF-8">
+<style>${css}</style>
+${html}`
 
   return (
     <Card
-      type={verified ? 'cyan' : false}
       shadow
-      style={{ marginBottom: '16pt' }}
+      style={{ marginTop: '32pt', marginBottom: '48pt', overflowX: 'auto' }}
+      className="editor"
     >
-      <Card.Content justify="center" style={{ textAlign: 'center' }}>
-        {children}
-      </Card.Content>
-      <Divider />
-      <Card.Content>
-        <Grid.Container>
-          <Grid md={12}>
-            <Textarea
-              status={verified ? 'success' : false}
-              value="Success"
-              initialValue={defaultValue}
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              style={{
-                fontFamily: 'ui-monospace, monospace',
-                width: '100%',
-                height: '100%',
-                minHeight: '100%',
-                minWidth: '100%',
-              }}
+      <Row>
+        <Col span={12}>
+          <Row>
+            <Description
+              title="HTML"
+              content={
+                <Textarea
+                  rows={6}
+                  value={html}
+                  onChange={(e) => setHtml(e.target.value)}
+                />
+              }
             />
-          </Grid>
-          <Grid md={12}>
-            <iframe
-              title="code preview"
-              frameBorder={0}
-              src={`data:text/html,${encodeURIComponent(content)}`}
+          </Row>
+          <Spacer y={1} />
+          <Row>
+            <Description
+              title="CSS"
+              content={
+                <Textarea
+                  rows={6}
+                  value={css}
+                  onChange={(e) => setCss(e.target.value)}
+                />
+              }
             />
-          </Grid>
-        </Grid.Container>
-      </Card.Content>
+          </Row>
+        </Col>
+        <Spacer x={2} />
+        <Col span={12} style={{ backgroundColor: 'white', borderRadius: 5 }}>
+          <iframe
+            title="code preview"
+            frameBorder={0}
+            src={`data:text/html,${encodeURIComponent(code)}`}
+            height={height}
+            width="100%"
+          />
+        </Col>
+      </Row>
     </Card>
   )
 }

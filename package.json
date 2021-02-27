@@ -13,10 +13,11 @@
     "@geist-ui/react": "^2.1.3",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^10.0.7",
-    "hls.js": "^0.14.17",
+    "@rehooks/component-size": "^1.0.3",
     "next": "^10.0.7",
     "next-plausible": "^1.5.1",
     "react": "^17.0.1",
+    "react-confetti": "^6.0.1",
     "react-dom": "^17.0.1"
   },
   "devDependencies": {

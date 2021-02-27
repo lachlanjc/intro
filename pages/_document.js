@@ -13,14 +13,16 @@ class MyDocument extends Document {
           {initialProps.styles}
           {styles}
         </>
-      )
+      ),
     }
   }
 
   render() {
     return (
       <Html lang="en-US">
-        <Head />
+        <Head>
+          <title>Personal Website Intro Workshop</title>
+        </Head>
         <body>
           <Main />
           <NextScript />

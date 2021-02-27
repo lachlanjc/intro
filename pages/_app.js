@@ -1,5 +1,6 @@
 import { CssBaseline, GeistProvider, Themes, Page } from '@geist-ui/react'
 import Author from '../components/author'
+import '../public/global.css'
 
 const theme = Themes.createFromDark({
   type: 'rounded',
@@ -9,16 +10,24 @@ const theme = Themes.createFromDark({
     mono:
       'ui-monospace, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace',
   },
+  palette: {
+    code: '#FF0080',
+    success: '#2CEE38',
+  },
+  layout: {
+    gap: '20pt',
+    gapNegative: '-20pt',
+    gapHalf: '10pt',
+    gapHalfNegative: '-10pt',
+    gapQuarter: '5pt',
+    gapQuarterNegative: '-5pt',
+  },
 })
 
 function App({ Component, pageProps }) {
   return (
     <GeistProvider themes={[theme]} themeType="rounded">
-      <style jsx global>{`
-        html {
-          font-size: 18px;
-        }
-      `}</style>
+      <style jsx global>{``}</style>
       <CssBaseline />
       <Page size="small">
         <Page.Content>

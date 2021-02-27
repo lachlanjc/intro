@@ -1,8 +1,7 @@
-# 2020 Sites
+# Intro
 
-A portfolio of websites [@lachlanjc](https://lachlanjc.com) made in 2020.
-Built with Next.js & [Geist UI](https://react.geist-ui.dev/).
+Lachlan’s introduction to HTML & CSS, taught as a workshop at hackathons.
 
-[**2020-sites.vercel.app**](https://2020-sites.vercel.app)
+[**intro.lachlanjc.com**](https://intro.lachlanjc.com)
 
 MIT License
