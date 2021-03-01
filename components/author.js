@@ -1,7 +1,26 @@
-import { Row, User, Spacer, Link, Divider } from '@geist-ui/react'
+import {
+  Row,
+  User,
+  Spacer,
+  Link,
+  Divider,
+  Text,
+  Col,
+  Grid,
+} from '@geist-ui/react'
 import { GitHub } from './icons'
 
-const Author = ({ github = true, ...props }) => (
+export const Author = () => (
+  <User
+    src="https://github.com/lachlanjc.png"
+    altText="Lachlan avatar"
+    name="Lachlan Campbell"
+  >
+    <User.Link href="https://lachlanjc.com/">@lachlanjc</User.Link>
+  </User>
+)
+
+const Footer = ({ github = true, ...props }) => (
   <>
     <Divider y={5} />
     <Row
@@ -37,4 +56,4 @@ const Author = ({ github = true, ...props }) => (
   </>
 )
 
-export default Author
+export default Footer

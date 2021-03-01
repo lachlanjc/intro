@@ -44,9 +44,10 @@ p + .collapse,
 
 video {
   display: flex;
-  margin: auto;
+  margin: 24pt auto 48pt;
   border-radius: 16px;
   overflow: hidden;
+  max-width: 100%;
 }
 
 .address-input a {

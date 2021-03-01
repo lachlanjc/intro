@@ -10,6 +10,7 @@ import {
   Snippet,
   Keyboard,
 } from '@geist-ui/react'
+import Image from 'next/image'
 import Checkpoint from '../components/checkpoint'
 import Browser from '../components/browser'
 import Editor from '../components/editor'
@@ -21,21 +22,24 @@ Welcome! In the next 45 minutes, you’re going to get your first website online
 
 <Browser url="https://intro-site.lachlanjc.repl.co" height={350} />
 
-<Note style={{ marginBottom: '12pt' }}>
-
-Check out the [live demo](https://intro-site.lachlanjc.repl.co) and [final code](https://repl.it/@lachlanjc/intro-site) (the files `index.html` & `style.css`).
-
-</Note>
+> Check out the [live demo](https://intro-site.lachlanjc.repl.co) and [final code](https://repl.it/@lachlanjc/intro-site) (the files `index.html` & `style.css`).
 
 ## Part 1: Setup
 
 <Progress type="secondary" value={10} />
 
-All websites are written with code. To write our code, we need our own code Checkpoint. We’re going to use [repl.it](https://repl.it), a free, online code Checkpoint, since it works on all kinds of computers. It works similarly to Google Docs, but it’s optimized for typing code & will host your website.
+All websites are written with code. To write our code, we need our own code editor. We’re going to use [repl.it](https://repl.it), a free, online code editor, since it works on all kinds of computers. It works similarly to Google Docs, but it’s optimized for typing code & will host your website at a permanent URL.
 
-To get started, go to <https://repl.it/languages/html>. Your coding environment will immediately spin up with some demo code.
+To get started, go to <https://repl.it/languages/html>. You’ll need to make an account, then click <Keyboard>Create repl</Keyboard>. Your coding environment will immediately spin up with some demo code.
 
-![repl.it empty](https://cloud-fxrw1wlqu.vercel.app/screen_shot_2020-09-04_at_12.35.02_pm_1.png)
+<Image
+  alt="repl.it editor with default HTML code in a MacBook"
+  src="/replit.png"
+  width={2048}
+  height={1218}
+  layout="responsive"
+  objectFit="contain"
+/>
 
 You should be seeing a file called `index.html`, with a bunch of text covered in `<` & `>` symbols. That’s HTML, which we’re about to write!
 
@@ -65,13 +69,22 @@ Add your name between opening `<h1>` + closing `</h1>` tags
 
 </Checkpoint>
 
-Another thing to remember about HTML is that it treats all blank spaces the same. If we wrote, for example, this…
+<Note>
 
-```html
-<h1>Hello, everyone!</h1>
+Another thing to remember about HTML is that it treats all blank spaces the same. If we wrote this…
+
+```
+<h1>
+
+  Hello
+
+      everyone!
+</h1>
 ```
 
 …it’ll look the same as the first example.
+
+</Note>
 
 ### Writing tags
 
@@ -96,7 +109,7 @@ Click the <Keyboard>Run</Keyboard> button to see your site. It’ll be blank—b
 
 ### Adding content
 
-Remember that `<h1>` tag you wrote? Add one of those with your name, below `<body>`!
+Remember that `<h1>` tag you wrote? Add one of those with your name, between `<body>` & `</body>`!
 
 ```html
 <!DOCTYPE html>
@@ -121,6 +134,21 @@ Your first webpage! Congratulations 🥳
   playsInline
 />
 
+<Note>
+
+You can open the webpage in its own tab by clicking the arrow button in the top-right:
+
+<Image
+  src="/replit_open.png"
+  alt="Annotated screenshot highlighting the arrow button in the top-right of replit"
+  width={1124}
+  height={396}
+/>
+
+You can open the same URL on any other device—it’s a public website!
+
+</Note>
+
 Next, let’s add some text underneath the heading. We’ll use the `<p>`, or paragraph, tag.
 
 ```html
@@ -143,22 +171,26 @@ HTML has _hundreds_ of tags. `<h1>` is used by nearly every website, as is `<p>`
 </Button>
 
 </Collapse>
-<Collapse title="What should my code look like?">
-
-![Screenshot of code + site on repl.it](https://cloud-25godl11h.vercel.app/screen_shot_2020-09-04_at_1.20.56_pm.png)
-
-</Collapse>
 </Collapse.Group>
+
+<Editor
+  defaultHtml={`<h1>Lachlan Campbell</h1>
+<p>Hey, I'm a web developer! 🦄</p>
+`}
+  height={128}
+/>
 
 ### Adding an image
 
 Text is fun, but let’s add an image! Images are included in HTML via the `<img>` tag,
 which has an **attribute** for the source URL of the image, shortened to `src`.
-After the name of your tag, put a space & provide the attribute like `<img src="https://url.com/image.jpg" />`
 
-Since there’s no text content inside, `<img />` is **self-closing**. There’s no `</img>` afterwards.
+It works like this: `<img src="https://url.com/image.jpg" />`
 
-<Checkpoint checks={['<img src="', 'ted.gif"', '/>']} cols={[18, 6]}>
+Note the equals sign, then quote marks around the attribute value (the URL).
+Since there’s no text content inside, `<img />` is **self-closing**; there’s no `</img>` afterwards.
+
+<Checkpoint checks={['<img src="', 'ted.gif"', '>']} cols={[18, 6]}>
 
 Write an `<img>` tag with this source URL
 
@@ -166,7 +198,7 @@ Write an `<img>` tag with this source URL
 
 </Checkpoint>
 
-Now, head over to Google Images, Imgur, Reddit, etc to get your own image. To get the source URL right click, then click <Keyboard>Copy Image Address</Keyboard>. Head back to repl.it & add an image to your page!
+Unless you love mine, head over to Google Images, Imgur, Reddit, etc to find your own image. To get the source URL, right click, then click <Keyboard>Copy Image Address</Keyboard>. On repl.it, add an image to your page!
 
 <Collapse.Group>
 <Collapse title="How do I upload my own image?">
@@ -182,7 +214,7 @@ As noted, the image tag doesn’t have a closing tag the way `<h1></h1>` or `<bo
 `<img>` is technically called a [void element](https://html.spec.whatwg.org/multipage/syntax.html#syntax-elements),
 which means it can’t contain text.
 
-Images aren’t the only self-closing tags; videos & embeds (like of YouTube videos) work like that too.
+Images aren’t the only self-closing tags; audio, videos, & embeds (like of Google Maps) are self-closing too.
 
 </Collapse>
 </Collapse.Group>
@@ -258,7 +290,7 @@ Underneath that, let’s add one more chunk, to format the text. Instead of just
 we can style `body`, since all the text is contained within it.
 
 I want to center the text on my page, plus change the font.
-For the font, I’m going to use `system-ui` (the system font),
+For the font, I’m going to use <Keyboard>system-ui</Keyboard> (the system font),
 but you can also try <Keyboard>Arial</Keyboard> (which Google uses), <Keyboard>Georgia</Keyboard> (if you’re fancy),
 or <Keyboard>"Comic Sans MS"</Keyboard> (note the quote marks) if that’s your vibe.
 

@@ -6,15 +6,17 @@ import {
   Button,
   useToasts,
 } from '@geist-ui/react'
+import { Author } from './author'
 
 const Form = () => {
   const [toasts, setToast] = useToasts()
 
   return (
     <Fieldset>
-      <Fieldset.Title>Submit your creation</Fieldset.Title>
+      <Fieldset.Title>Send me your creation</Fieldset.Title>
       <Fieldset.Subtitle>
-        Email is optional, if you want me to send you links afterwards.
+        I’d love to see what you made during this workshop—even if you think
+        it’s embarassing :)
       </Fieldset.Subtitle>
       <form
         action="https://formspree.io/f/mzbkldlo"
@@ -45,6 +47,9 @@ const Form = () => {
           Submit
         </Button>
       </form>
+      <Fieldset.Footer>
+        <Author />
+      </Fieldset.Footer>
     </Fieldset>
   )
 }
