@@ -42,12 +42,8 @@ const Checkpoint = ({
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 placeholder={placeholder}
-                style={{
-                  fontFamily: 'ui-monospace, monospace',
-                  width: '100%',
-                  height: '100%',
-                  maxWidth: '100%',
-                }}
+                autoCorrect="off"
+                spellCheck="false"
               />
               {verified && (
                 <Confetti

@@ -26,6 +26,8 @@ ${html}`
                   rows={6}
                   value={html}
                   onChange={(e) => setHtml(e.target.value)}
+                  autoCorrect="off"
+                  spellCheck="false"
                 />
               }
             />
@@ -41,6 +43,8 @@ ${html}`
                       rows={6}
                       value={css}
                       onChange={(e) => setCss(e.target.value)}
+                      autoCorrect="off"
+                      spellCheck="false"
                     />
                   }
                 />
